@@ -1,8 +1,10 @@
 import React from 'react';
 import { TodoListWrapper, Section, Todo, TodoLists, TodoItem, FormCheckboxGroup, TodoContent, TodoActions } from './style';
+import { connect } from 'react-redux';
 
-export default class TodoList extends React.Component{
+class TodoList extends React.Component{
     render(){
+        console.log(this.props.focused)
         return(
             <TodoListWrapper>
                 <Section>
@@ -61,3 +63,17 @@ export default class TodoList extends React.Component{
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        focused: state.focused
+    }
+}
+
+const mapDispathToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(TodoList);
