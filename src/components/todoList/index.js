@@ -1,6 +1,8 @@
 import React from 'react';
 import { TodoListWrapper, Section, Todo, TodoLists, TodoItem, FormCheckboxGroup, TodoContent, TodoActions } from './style';
 import { connect } from 'react-redux';
+// 統一從store裡面取就好
+import { actionCreators } from './store';
 
 class TodoList extends React.Component{
     render(){
@@ -66,7 +68,7 @@ class TodoList extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.focused
+        focused: state.todoList.focused
     }
 }
 
