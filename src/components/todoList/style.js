@@ -55,12 +55,13 @@ export const TodoLists = styled.div`
     }
 `
 
-export const TodoItem = styled.div`
+export const TodoItems = styled.div`
     display: flex;
     padding: 5px 7px;
     width: 100%;
     // border: 1px solid;
     transition: all .4s;
+    color: #333;
     &:hover {
         background: rgba(202, 201, 206, 0.59);
     }
