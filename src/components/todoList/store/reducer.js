@@ -1,17 +1,45 @@
-// import * as constants from './constants';
+import * as constants from './constants';
 import { fromJS } from 'immutable';
 
-
 // 把數據對象轉化成immutable對象
-const defaultState = fromJS(
-    {
-        focused: 123
-    }
-)
+const defaultState = fromJS( {
+    inputValue: '1',
+    list: [
+        {id: "1",inputValue: "111000", type: "no" },
+        {id: "2",inputValue: "222000", type: "ok" }
+    ]	
+})
+
 export default (state = defaultState, action) => {
+    // 12.
+    if (action.type === constants.Add_ITEM) {        
+        return state.set('inputValue', action.value);
+    }
+
+    // 17.
+    if (action.type === constants.ITEM_SUBMIT) { 
+        console.log("-----state.list", state.get('list'))
+        const list = state.get('list').concat({
+            id: `${Math.floor(Math.random( )*1000)}`,
+            inputValue: state.get('inputValue'),
+            type: 'no'
+        })
+        state.inputValue = '';
+        return state.set('list', list).set('inputValue', state.inputValue);
+    }
     return state;
 }
 
+// const newListItem = {
+//     // id: this.state.inputValue,         // 用輸入的字當id
+//     id: `${Math.floor(Math.random( )*1000)}`,
+//     inputValue: this.state.inputValue,  // 輸入的字
+//     type: "no"
+// }
+// this.setState({
+//     list : [...this.state.list, newListItem],
+//     inputValue: ''
+// })
 // 範例
 // export default (state = defaultState, action) => {
 //     if (action.type === constants.SEARCH_FOCUS) {

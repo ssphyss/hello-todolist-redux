@@ -1,8 +1,14 @@
 import React from 'react';
 import { TodoItems, FormCheckboxGroup, TodoContent, TodoActions } from './style';
+// 1.
+import { connect } from 'react-redux';
 
-export default class TodoItem extends React.Component{
+class TodoItem extends React.Component{
     render(){
+         // 4.
+         console.log('TodoItem---------inputValue：',this.props.inputValue);
+         console.log('TodoItem---------list：',this.props.list);
+
         return(
             <TodoItems className='todo__item--complete'>
                 <FormCheckboxGroup>
@@ -22,3 +28,14 @@ export default class TodoItem extends React.Component{
         )
     }
 }
+
+// 3.
+const mapState = (state) => {
+	return {
+        inputValue: state.getIn(['todoList','inputValue']),
+        list: state.getIn(['todoList','list'])
+	}
+}
+
+// 2.
+export default connect(mapState, null)(TodoItem);

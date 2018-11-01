@@ -1,6 +1,5 @@
-// // export const SEARCH_FOCUS = 'search_focus';  // 錯
-// // export const SEARCH_BLUR = 'search_blur';    // 錯
+// 11.
+export const Add_ITEM = 'todoList/Add_ITEM';
 
-// export const SEARCH_FOCUS = 'todoList/SEARCH_FOCUS';
-// export const SEARCH_BLUR = 'todoList/SEARCH_BLUR';
-// export const CHANGE_LIST = 'todoList/CHANGE_LIST';
+// 16.
+export const ITEM_SUBMIT = 'todoList/ITEM_SUBMIT';

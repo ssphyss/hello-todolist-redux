@@ -7,8 +7,12 @@ import { connect } from 'react-redux';
 // import { actionCreators } from './store';
 
 class TodoList extends React.Component{
+
     render(){
-        console.log(this.props.focused)
+        // .
+        console.log('index---------inputValue：',this.props.inputValue);
+        console.log('index---------list：',this.props.list);
+
         return(
             <TodoListWrapper>
                 <Section>
@@ -20,7 +24,7 @@ class TodoList extends React.Component{
                             <TodoItem />
 
                             <h5>已完成</h5>
-                            <TodoItem />
+                            {/* <TodoItem /> */}
 
                             <h5>新增任務</h5>
                             <TodoAdd />
@@ -38,9 +42,11 @@ const mapStateToProps = (state) => {
         // 改成調用immutable數據
         // focused: state.todoList.get('focused'),
 
-
-        focused: state.get('todoList').get('focused'),
+        // focused: state.get('todoList').get('focused'),
         // focused: state.getIn(['todoList','focused'])
+
+        inputValue: state.getIn(['todoList','inputValue']),
+        list: state.getIn(['todoList','list'])
     }
 }
 
