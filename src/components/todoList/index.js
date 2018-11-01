@@ -68,7 +68,13 @@ class TodoList extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.todoList.focused
+        // focused: state.todoList.focused,
+        // 改成調用immutable數據
+        // focused: state.todoList.get('focused'),
+
+        
+        focused: state.get('todoList').get('focused'),
+        // focused: state.getIn(['todoList','focused'])
     }
 }
 
