@@ -9,14 +9,14 @@ class TodoAdd extends Component{
 
     render(){
         // 5.
-        console.log('TodoAdd---------inputValue：',this.props.inputValue);
+        // console.log('TodoAdd---------inputValue：',this.props.inputValue);
         console.log('TodoAdd---------list：',this.props.list);
 
         return(
             <TodoItems className="todo__item--add">
                 <TodoContent>
-                    <input 
-                        // 6.
+                    <input
+                        // 6.讀取input值,偵測變更
                         value={this.props.inputValue}
                         onChange={this.props.handleInputChange}
                         className="form__input" placeholder="請輸入" type="text" />
@@ -44,14 +44,14 @@ const mapState = (state) => {
 // 4.
 const mapDispath = (dispatch) => {
     return {
-        // 7.
+        // 7.輸入框變更偵測
         handleInputChange(e) {
-            console.log('handleInputChange：',e.target.value);
+            console.log('輸入框變更偵測',e.target.value);
             // 8.
             const action = actionCreators.getInputChangeAction(e.target.value);
             dispatch(action);
         },
-        // 14.
+        // 14.送出新增
         handleItemSubmit(e){
             e.preventDefault();
             const action = actionCreators.getItemSubmitAction();

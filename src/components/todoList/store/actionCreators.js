@@ -1,26 +1,39 @@
 import * as constants from './constants';
 
-// 10.
+/**
+ * TodoAdd (e)
+ * */
+
+// 10.輸入框變更偵測
 export const getInputChangeAction = (e) => ({
-    type: constants.Add_ITEM,
+    type: constants.ADD_CHANGE,
     value: e
 })
 
-// 15.
+// 15.送出新增
 export const getItemSubmitAction = () => ({
-    type: constants.ITEM_SUBMIT
+    type: constants.ADD_SUBMIT
 })
 
 
+/**
+ * TodoItem (value,index)
+ * */
 
+// 24.輸入框變更偵測
+export const getListChangeAction = (value, index) => ({
+    type: constants.ITEM_CHANGE,
+    payload: {value, index}
+})
 
-// const newListItem = {
-//     // id: this.state.inputValue,         // 用輸入的字當id
-//     id: `${Math.floor(Math.random( )*1000)}`,
-//     inputValue: this.state.inputValue,  // 輸入的字
-//     type: "no"
-// }
-// this.setState({
-//     list : [...this.state.list, newListItem],
-//     inputValue: ''
-// })
+// 30.刪除
+export const getListDeleteAction = (index) => ({
+    type: constants.ITEM_DELETE,
+    payload: {index}
+})
+
+// 35.變更勾選
+export const getCheckboxAction = (index) => ({
+    type: constants.CHECKBOX_CHANGE,
+    payload: {index}
+})

@@ -9,10 +9,25 @@ import { connect } from 'react-redux';
 class TodoList extends React.Component{
 
     render(){
-        // .
-        console.log('index---------inputValue：',this.props.inputValue);
-        console.log('index---------list：',this.props.list);
 
+        // console.log('index---------inputValue：',this.props.inputValue);
+        // console.log('index---------list：',this.props.list);
+
+        // console.log('index---------list：',this.props.list[1].type);
+        // 27.
+        const filterNo = this.props.list.filter((item) => {
+			if(item.type === "no"){
+				return item
+            }
+            return false
+		})
+		const filterOk = this.props.list.filter((item) => {
+			if(item.type === "ok"){
+				return item
+            }
+            return false
+        })
+        
         return(
             <TodoListWrapper>
                 <Section>
@@ -21,11 +36,41 @@ class TodoList extends React.Component{
                         <span className="heading-primary--sub">Built by Phy  for her CSS AND SASS. Copyright © by Phy.</span>                   
                         <TodoLists>
                             <h5>代辦清單</h5>
-                            <TodoItem />
+                            {/* 18 */}
+                            {
+								filterNo.map((item, index)=>{
+									return (
+                                        <TodoItem 		
+                                            // inputValue是list裡面每一個的inputValue
+                                            // index 是索引	
+                                            key={item.id}
+                                            index={item.id}
+                                            num={index}
+                                            content={item.inputValue} 
+                                            type={item.type}                                       
+										/>
+									)
+								})
+							}               
 
                             <h5>已完成</h5>
                             {/* <TodoItem /> */}
-
+                            {/* 28. */}
+                            {
+								filterOk.map((item, index)=>{
+									return (
+                                        <TodoItem 		
+                                            // inputValue是list裡面每一個的inputValue
+                                            // index 是索引	
+                                            key={item.id}
+                                            index={item.id}
+                                            num={index}
+                                            content={item.inputValue}   
+                                            type={item.type}                                         
+										/>
+									)
+								})
+							}  
                             <h5>新增任務</h5>
                             <TodoAdd />
                         </TodoLists>

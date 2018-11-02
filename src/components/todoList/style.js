@@ -69,9 +69,13 @@ export const TodoItems = styled.div`
         // border: 1px solid;
         padding: 6px;
     }
+    .form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-button::before,
+    .form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-button::after {
+        opacity: 1;
+    }
     &.todo__item--complete {
         opacity: 0.4;
-        background-color: #fff;
+        // background-color: #fff;
         &:hover {
             opacity: 1;
             .form__checkbox-group {
@@ -81,22 +85,25 @@ export const TodoItems = styled.div`
                 background: #fff;
             }
 
-        }
+        }.
         input {
             background: transparent;
         }
         .form__checkbox-group {
-            // opacity: 0;
-            .form__checkbox-button {
-                &::before {
-                    opacity: 1
-                }
-                &::after {
-                    opacity: 1
-                }
+            // opacity: 0;            
+        }
+        .form__checkbox-button {
+            &::before {
+                opacity: 1
+            }
+            &::after {
+                opacity: 1
             }
         }
-        
+        .form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-button::before,
+        .form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-button::after {
+            opacity: 0;
+        }
     }
 `
 
@@ -152,11 +159,7 @@ export const FormCheckboxGroup = styled.div`
             transition: all .3s;
             opacity: 0;
         }
-    }
-    .form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-button::before,
-    .form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-button::after {
-        opacity: 1;
-    }
+    }    
 `
 
 export const TodoContent = styled.div`
@@ -166,7 +169,7 @@ export const TodoContent = styled.div`
         width: 100%;
         padding-left: 10px;
         border: none;
-        border: 3px solid rgba(135, 124, 169, 0.5);
+        // border: 3px solid rgba(135, 124, 169, 0.5);
         border-radius: 4px;
         // background-color: #e8e8e8;
         height: 40px;
