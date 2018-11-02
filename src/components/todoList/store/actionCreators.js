@@ -1,13 +1,13 @@
 import * as constants from './constants';
 
 /**
- * TodoAdd (e)
+ * TodoAdd (value)
  * */
 
 // 10.輸入框變更偵測
-export const getInputChangeAction = (e) => ({
+export const getInputChangeAction = (value) => ({
     type: constants.ADD_CHANGE,
-    value: e
+    value: value
 })
 
 // 15.送出新增

@@ -10,7 +10,7 @@ class TodoAdd extends Component{
     render(){
         // 5.
         // console.log('TodoAdd---------inputValue：',this.props.inputValue);
-        console.log('TodoAdd---------list：',this.props.list);
+        // console.log('TodoAdd---------list：',this.props.list);
 
         return(
             <TodoItems className="todo__item--add">
@@ -46,11 +46,12 @@ const mapDispath = (dispatch) => {
     return {
         // 7.輸入框變更偵測
         handleInputChange(e) {
-            console.log('輸入框變更偵測',e.target.value);
+            // console.log('輸入框變更偵測',e.target.value)
             // 8.
             const action = actionCreators.getInputChangeAction(e.target.value);
             dispatch(action);
         },
+        
         // 14.送出新增
         handleItemSubmit(e){
             e.preventDefault();

@@ -22,7 +22,7 @@ export default (state = defaultState, action) => {
         return state.set('inputValue', action.value);
     }
 
-    // 17.送出新增,定義一個新資料的格式
+    // 17.送出新增,定義一個新資料的格式送出新資料
     if (action.type === constants.ADD_SUBMIT) { 
         // console.log("送出後的新資料list的前一狀態", state.get('list'))
         const [...list] = state.get('list')
@@ -60,26 +60,29 @@ export default (state = defaultState, action) => {
 
     // 32.刪除
     if (action.type === constants.ITEM_DELETE) {        
-        console.log('action',action.payload.index)
+        // console.log('action',action.payload.index)
 
         const index = action.payload.index;
+
         let [...list] = state.get('list');
-        list = list.filter((item, i) => {
+        list = list.filter((item) => {
             if(item.id === index){
                 return false
             }else {
                 return true
             }
-        }) 
+        })         
         return state.set('list', list);
     }
 
     // 37.變更勾選
     if (action.type === constants.CHECKBOX_CHANGE) {        
-        console.log('變更勾選',action.payload.index)
+        // console.log('變更勾選',action.payload.index)
         
         const index = action.payload.index;
+
         let [...list] = state.get('list');
+        
         list = list.map((item) => {
             if(item.id === index){
                 let newType;

@@ -1,3 +1,9 @@
+/**
+ * Redux 應用中只有一個單一的store。
+ * 如果需要對數據進行拆分， 可以把數據存儲在多個reducer中， 
+ * 然後使用combineReducers() 將多個reducer 合併為一個。
+ */
+
 // 1. 引入
 // import { combineReducers } from  'redux';
 // 改引用redux-immutable

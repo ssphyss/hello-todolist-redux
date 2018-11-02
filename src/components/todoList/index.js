@@ -81,6 +81,14 @@ class TodoList extends React.Component{
     }
 }
 
+/**
+ * 在react中， 容器組件可以使用connect() 方法訪問store。
+ * 使用connect() 時， 使用mapStateToProps這個函數
+ * 來指定當前Redux store state 中需要映射到展示組件的props 中的數據， 
+ * 使用mapDispatchToProps() 方法接收dispatch() 方法
+ * 並返回期望注入到展示組件的props 中的回調方法。
+ */
+
 const mapStateToProps = (state) => {
     return {
         // focused: state.todoList.focused,

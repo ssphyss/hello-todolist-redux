@@ -20,7 +20,7 @@ class TodoItem extends React.Component{
                 <span>{this.props.index}</span>
                 <FormCheckboxGroup>
                     <input 
-                        onChange={(e)=>this.props.handleChangeType(this.props.index)}
+                        onChange={()=>this.props.handleChangeType(this.props.index)}
                         type="checkbox" className="form__checkbox-input" id={this.props.index} />
                     <label htmlFor={this.props.index} className="form__checkbox-label">
                         <span className="form__checkbox-button"></span>									         
@@ -45,7 +45,7 @@ class TodoItem extends React.Component{
                         onClick={this.props.handleInputChange}
                         href='./'><i className="todo__icon icon-basic-todolist-pen"></i>編輯</a>
                     <a 
-                        // 28.刪除
+                        // 28.刪除，要帶index索引
                         onClick={(e)=> this.props.handleItemDelete(e, this.props.index)}
                         href='./'><i className="todo__icon icon-basic-trashcan"></i>刪除
                     </a>
@@ -64,25 +64,23 @@ const mapState = (state) => {
 
 const mapDispath = (dispatch) => {
     return {
-        // 22.輸入框變更偵測
+        // 22.輸入框變更偵測，要帶值、index索引
         handleInputChange(e, index) { 
-            e.preventDefault();
-            // console.log('Item觸發Inpu改變,index：',e.target.value,index);
+            e.preventDefault();            
             // 23.
             const action = actionCreators.getListChangeAction(e.target.value, index);
             dispatch(action);
         },
 
-        // 29.刪除
+        // 29.刪除，要帶index索引
         handleItemDelete(e, index) { 
             e.preventDefault();
             const action = actionCreators.getListDeleteAction(index);
             dispatch(action);
         },
 
-        // 34.變更checkbox 勾選狀態
+        // 34.變更checkbox 勾選狀態，要帶index索引
         handleChangeType(index){
-            console.log(index);
             const action = actionCreators.getCheckboxAction(index);
             dispatch(action);
         }

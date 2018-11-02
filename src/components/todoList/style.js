@@ -15,6 +15,7 @@ export const Section = styled.div`
     box-shadow: 6px 10px 27px -10px rgba(0, 0, 0, 0.4);
     transition: all .2s;
     background-color: #877ca9;
+    background-color: #0194a7;
     &:hover {
         box-shadow: 6px 10px 50px -10px rgba(0, 0, 0, 0.4);
         transform: translateY(-13px);
